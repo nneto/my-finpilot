@@ -34,6 +34,10 @@ echo "::group:: Install Packages"
 # Install packages using dnf5
 # Example: dnf5 install -y tmux
 
+# GitKraken
+wget https://api.gitkraken.dev/releases/production/linux/x64/active/gitkraken-amd64.rpm && dnf5 install -y gitkraken-amd64.rpm
+
+
 # Example using COPR with isolated pattern:
 # copr_install_isolated "ublue-os/staging" package-name
 
