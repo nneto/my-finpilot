@@ -29,6 +29,12 @@ cp /ctx/custom/flatpaks/*.preinstall /etc/flatpak/preinstall.d/
 
 echo "::endgroup::"
 
+echo "::group:: Install Gnome Extensions"
+
+/ctx/build/build-gnome-extensions.sh
+
+echo "::endgroup::"
+
 echo "::group:: Install Packages"
 
 # Install packages using dnf5
