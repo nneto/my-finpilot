@@ -2,6 +2,19 @@
 #######################
 ### custom-system.just
 #######################
+
+# Layers megasync and nautilus-megasync with rpm-ostree
+[group('System')]
+layer-mega:
+    #!/usr/bin/env bash
+    echo "Downloading rpms..."
+    wget https://mega.nz/linux/repo/Fedora_43/x86_64/megasync-Fedora_43.x86_64.rpm
+    wget https://mega.nz/linux/repo/Fedora_42/x86_64/nautilus-megasync-Fedora_42.x86_64.rpm
+    echo "Preparing to layer..."
+    sudo rpm-ostree install -y megasync-Fedora_43.x86_64.rpm nautilus-megasync-Fedora_42.x86_64.rpm
+    rm megasync-Fedora_43.x86_64.rpm nautilus-megasync-Fedora_42.x86_64.rpm
+    echo "Completed!"
+
 ## Example system configuration commands
 ## These are simplified examples adapted from Bluefin
 
