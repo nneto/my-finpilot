@@ -33,7 +33,7 @@ jobs:
           find "custom/ujust" -iname '*.just' -print0 | \
             while IFS= read -r -d '' justfile ; do \
               echo "::group:: ===$(basename "$justfile")==="
-              just --unstable --fmt --check "$justfile"
+              just --unstable --fmt --check -f "$justfile"
               echo "::endgroup::"
             done
 
