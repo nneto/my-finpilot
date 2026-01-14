@@ -26,7 +26,7 @@ jobs:
 
           # Validate root Justfile
           echo "::group:: Validating Justfile"
-          just --unstable --fmt --check Justfile
+          just --unstable --fmt --check -f Justfile
           echo "::endgroup::"
 
           # Validate custom ujust files
