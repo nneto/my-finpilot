@@ -14,8 +14,12 @@ dnf5 -y install glib2-devel meson sassc cmake dbus-devel
 
 # Build Extensions
 
-# AppIndicator Support
+## AppIndicator Support
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com/schemas
+
+## Dash to Dock
+make -C /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+glib-compile-schemas --strict /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
 
 rm /usr/share/glib-2.0/schemas/gschemas.compiled
 glib-compile-schemas /usr/share/glib-2.0/schemas

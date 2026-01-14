@@ -1,3 +1,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com"]
 	path = custom/gnome/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
 	url = https://github.com/ubuntu/gnome-shell-extension-appindicator.git
+[submodule "custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"]
+	path = custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	url = https://github.com/micheleg/dash-to-dock.git
