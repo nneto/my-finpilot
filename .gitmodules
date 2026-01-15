@@ -7,3 +7,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx"]
 	path = custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx
 	url = https://github.com/aunetx/blur-my-shell.git
+[submodule "custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io"]
+	path = custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io
+	url = https://github.com/GSConnect/gnome-shell-extension-gsconnect.git

@@ -17,3 +17,8 @@ running-indicator-style='DASHES'
 scroll-action='switch-workspace'
 shift-middle-click-action='focus-or-appspread'
 show-trash=false
+
+# GSConnect
+
+[gsconnect]
+name='My Finpilot'

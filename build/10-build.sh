@@ -40,6 +40,16 @@ echo "::group:: Install Packages"
 # Install packages using dnf5
 # Example: dnf5 install -y tmux
 
+# Base packages
+FEDORA_PACKAGES=(
+    gum
+    nautilus-gsconnect
+)
+
+# Install all Fedora packages (bulk - safe from COPR injection)
+echo "Installing ${#FEDORA_PACKAGES[@]} packages from Fedora repos..."
+dnf5 -y install "${FEDORA_PACKAGES[@]}"
+
 # GitKraken
 wget https://api.gitkraken.dev/releases/production/linux/x64/active/gitkraken-amd64.rpm && dnf5 install -y gitkraken-amd64.rpm
 
