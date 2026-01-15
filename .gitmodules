@@ -4,3 +4,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"]
 	path = custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
 	url = https://github.com/micheleg/dash-to-dock.git
+[submodule "custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx"]
+	path = custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx
+	url = https://github.com/aunetx/blur-my-shell.git
