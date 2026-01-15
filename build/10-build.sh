@@ -50,6 +50,10 @@ FEDORA_PACKAGES=(
 echo "Installing ${#FEDORA_PACKAGES[@]} packages from Fedora repos..."
 dnf5 -y install "${FEDORA_PACKAGES[@]}"
 
+# Clipboard Manager
+curl -1sLf 'https://dl.cloudsmith.io/public/gustavosett/clipboard-manager/setup.rpm.sh' | bash
+dnf5 install -y win11-clipboard-history
+
 # GitKraken
 wget https://api.gitkraken.dev/releases/production/linux/x64/active/gitkraken-amd64.rpm && dnf5 install -y gitkraken-amd64.rpm
 
