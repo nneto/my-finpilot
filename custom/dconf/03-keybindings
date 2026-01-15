@@ -1,0 +1,34 @@
+[org/gnome/desktop/wm/keybindings]
+switch-input-source=['<Shift><Super>space']
+switch-input-source-backward=@as []
+
+[org/gnome/settings-daemon/plugins/media-keys]
+home=['<Super>f']
+calculator=['<Super>c']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>Return'
+command='/usr/bin/ptyxis --new-window'
+name='Terminal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Control><Shift>Escape'
+command="flatpak run io.missioncenter.MissionCenter"
+name='Mission Center'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>Print'
+command='flatpak run be.alexandervanhee.gradia --screenshot'
+name='Take and edit screenshot'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Super>period'
+command="flatpak run it.mijorus.smile"
+name='Open up the emoji picker'
+
+[org/gnome/shell/keybindings]
+focus-active-notification=['<Shift><Super>n']
+toggle-application-view=@as []
+toggle-message-tray=['<Super>n']
+toggle-quick-settings=@as []
