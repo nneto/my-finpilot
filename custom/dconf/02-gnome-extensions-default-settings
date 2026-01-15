@@ -1,6 +1,6 @@
 # Blur my shell
 
-[blur-my-shell]
+[org/gnome/shell/extensions/blur-my-shell]
 settings-version=2
 
 # Dash to dock
@@ -20,5 +20,15 @@ show-trash=false
 
 # GSConnect
 
-[gsconnect]
+[org/gnome/shell/extensions/gsconnect]
 name='My Finpilot'
+
+# Search Light
+
+[org/gnome/shell/extensions/search-light]
+background-color=(0.0, 0.0, 0.0, 0.80)
+border-color=(0.20, 0.20, 0.20, 1.0)
+border-radius=2.90
+border-thickness=1
+popup-at-cursor-monitor=true
+shortcut-search=['<Super>space']

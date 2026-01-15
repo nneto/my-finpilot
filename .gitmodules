@@ -10,3 +10,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io"]
 	path = custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io
 	url = https://github.com/GSConnect/gnome-shell-extension-gsconnect.git
+[submodule "custom/gnome/gnome-shell/extensions/search-light@icedman.github.com"]
+	path = custom/gnome/gnome-shell/extensions/search-light@icedman.github.com
+	url = https://github.com/icedman/search-light.git
