@@ -13,3 +13,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/search-light@icedman.github.com"]
 	path = custom/gnome/gnome-shell/extensions/search-light@icedman.github.com
 	url = https://github.com/icedman/search-light.git
+[submodule "custom/gnome/gnome-shell/extensions/color-picker@tuberry"]
+	path = custom/gnome/gnome-shell/extensions/color-picker@tuberry
+	url = https://github.com/tuberry/color-picker.git

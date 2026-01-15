@@ -22,13 +22,20 @@ unzip -o /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/build/blur-my-sh
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/schemas
 rm -rf /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/build
 
+## Color picker
+meson setup -Dtarget=system --prefix=/usr /usr/share/gnome-shell/extensions/color-picker@tuberry /usr/share/gnome-shell/extensions/color-picker@tuberry/_build
+meson install -C /usr/share/gnome-shell/extensions/color-picker@tuberry/_build --skip-subprojects
+rm -rf /usr/share/gnome-shell/extensions/color-picker@tuberry/_build
+
 ## Dash to Dock
 make -C /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
+rm -rf /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/build
 
 # GSConnect
 meson setup --prefix=/usr /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build
 meson install -C /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build --skip-subprojects
+rm -rf /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build
 # GSConnect installs schemas to /usr/share/glib-2.0/schemas and meson compiles them automatically
 
 # Search Light
