@@ -7,7 +7,6 @@ echo "::group:: ===$(basename "$0")==="
 
 # Copy files
 rsync -rvK /ctx/custom/gnome/gnome-shell/extensions/ /usr/share/gnome-shell/extensions/
-rsync -rvK /ctx/custom/gnome/gschemas/ /usr/share/glib-2.0/schemas/
 
 # Install tooling
 dnf5 -y install glib2-devel meson sassc cmake dbus-devel

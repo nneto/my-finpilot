@@ -1,13 +1,9 @@
-[org.gnome.shell]
-favorite-apps = ['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'gitkraken.desktop']
-enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com']
-
-[org.gnome.shell.extensions.dash-to-dock]
+[org/gnome/shell/extensions/dash-to-dock]
 always-center-icons=false
 apply-custom-theme=false
 apply-glossy-effect=false
 background-color='rgb(36,31,49)'
-background-opacity=0.80000000000000004
+background-opacity=0.80
 click-action='minimize-or-previews'
 custom-background-color=true
 custom-theme-shrink=false
@@ -16,13 +12,11 @@ disable-overview-on-startup=false
 dock-fixed=false
 dock-position='BOTTOM'
 extend-height=false
-height-fraction=0.90000000000000002
+height-fraction=0.90
 intellihide-mode='ALL_WINDOWS'
-max-alpha=0.80000000000000004
+max-alpha=0.8
 middle-click-action='launch'
 min-alpha=0.5
-preferred-monitor=-2
-preferred-monitor-by-connector='HDMI-1'
 running-indicator-dominant-color=false
 running-indicator-style='DASHES'
 scroll-action='switch-workspace'

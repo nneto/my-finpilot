@@ -49,11 +49,21 @@ wget https://api.gitkraken.dev/releases/production/linux/x64/active/gitkraken-am
 
 echo "::endgroup::"
 
+echo "::group:: Keyfiles for dconf user profile"
+
+cp /ctx/custom/dconf/* /etc/dconf/db/local.d/
+
+echo "::endgroup::"
+
 echo "::group:: System Configuration"
 
+# Copy systemd services
+cp /ctx/custom/systemd/system/*.service /usr/lib/systemd/system/
+
 # Enable/disable systemd services
-systemctl enable podman.socket
 # Example: systemctl mask unwanted-service
+systemctl enable podman.socket
+systemctl enable dconf-update.service
 
 echo "::endgroup::"
 
