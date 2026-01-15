@@ -9,7 +9,7 @@ echo "::group:: ===$(basename "$0")==="
 rsync -rvK /ctx/custom/gnome/gnome-shell/extensions/ /usr/share/gnome-shell/extensions/
 
 # Install tooling
-dnf5 -y install glib2-devel gcc gcc-c++ meson ninja-build sassc cmake dbus-devel
+dnf5 -y install glib2-devel gcc gcc-c++ gettext meson ninja-build sassc cmake dbus-devel
 
 # Build Extensions
 
@@ -32,20 +32,24 @@ make -C /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
 rm -rf /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/build
 
-# GSConnect
+## GSConnect
 meson setup --prefix=/usr /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build
 meson install -C /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build --skip-subprojects
 rm -rf /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build
 # GSConnect installs schemas to /usr/share/glib-2.0/schemas and meson compiles them automatically
 
-# Search Light
+## Hide Top Bar
+make -C /usr/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca
+glib-compile-schemas --strict /usr/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca/schemas
+
+## Search Light
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/search-light@icedman.github.com/schemas
 
 rm /usr/share/glib-2.0/schemas/gschemas.compiled
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
 # Cleanup
-dnf5 -y remove glib2-devel gcc gcc-c++ meson ninja-build sassc cmake dbus-devel
+dnf5 -y remove glib2-devel gcc gcc-c++ gettext meson ninja-build sassc cmake dbus-devel
 rm -rf /usr/share/gnome-shell/extensions/tmp
 
 echo "::endgroup::"

@@ -16,3 +16,6 @@
 [submodule "custom/gnome/gnome-shell/extensions/color-picker@tuberry"]
 	path = custom/gnome/gnome-shell/extensions/color-picker@tuberry
 	url = https://github.com/tuberry/color-picker.git
+[submodule "custom/gnome/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca"]
+	path = custom/gnome/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca
+	url = https://gitlab.gnome.org/tuxor1337/hidetopbar.git

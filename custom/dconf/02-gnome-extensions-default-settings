@@ -31,6 +31,14 @@ show-trash=false
 [org/gnome/shell/extensions/gsconnect]
 name='My Finpilot'
 
+# Hide Top Bar
+
+[org/gnome/shell/extensions/hidetopbar]
+enable-active-window=false
+enable-intellihide=false
+hot-corner=true
+mouse-sensitive=true
+
 # Search Light
 
 [org/gnome/shell/extensions/search-light]
