@@ -32,6 +32,9 @@ make -C /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
 glib-compile-schemas --strict /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/schemas
 rm -rf /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/build
 
+## Disable Unredirect
+cp -rf /usr/share/gnome-shell/extensions/disable-unredirect@exeos/src/* /usr/share/gnome-shell/extensions/disable-unredirect@exeos/
+
 ## GSConnect
 meson setup --prefix=/usr /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build
 meson install -C /usr/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/_build --skip-subprojects
