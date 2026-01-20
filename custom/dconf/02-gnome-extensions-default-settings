@@ -1,0 +1,50 @@
+# Blur my shell
+
+[org/gnome/shell/extensions/blur-my-shell]
+settings-version=2
+
+# Color picker
+
+[org/gnome/shell/extensions/color-picker]
+enable-notify=true
+enable-shortcut=true
+enable-sound=false
+notify-style=uint32 1
+
+# Dash to dock
+
+[org/gnome/shell/extensions/dash-to-dock]
+apply-glossy-effect=false
+background-color='rgb(36,31,49)'
+click-action='minimize-or-previews'
+custom-background-color=true
+dash-max-icon-size=64
+intellihide-mode='ALL_WINDOWS'
+min-alpha=0.5
+running-indicator-style='DASHES'
+scroll-action='switch-workspace'
+shift-middle-click-action='focus-or-appspread'
+show-trash=false
+
+# GSConnect
+
+[org/gnome/shell/extensions/gsconnect]
+name='My Finpilot'
+
+# Hide Top Bar
+
+[org/gnome/shell/extensions/hidetopbar]
+enable-active-window=false
+enable-intellihide=false
+hot-corner=true
+mouse-sensitive=true
+
+# Search Light
+
+[org/gnome/shell/extensions/search-light]
+background-color=(0.0, 0.0, 0.0, 0.80)
+border-color=(0.20, 0.20, 0.20, 1.0)
+border-radius=2.90
+border-thickness=1
+popup-at-cursor-monitor=true
+shortcut-search=['<Super>space']

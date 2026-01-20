@@ -1,0 +1,24 @@
+[submodule "custom/gnome/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com"]
+	path = custom/gnome/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
+	url = https://github.com/ubuntu/gnome-shell-extension-appindicator.git
+[submodule "custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"]
+	path = custom/gnome/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	url = https://github.com/micheleg/dash-to-dock.git
+[submodule "custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx"]
+	path = custom/gnome/gnome-shell/extensions/blur-my-shell@aunetx
+	url = https://github.com/aunetx/blur-my-shell.git
+[submodule "custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io"]
+	path = custom/gnome/gnome-shell/extensions/gsconnect@andyholmes.github.io
+	url = https://github.com/GSConnect/gnome-shell-extension-gsconnect.git
+[submodule "custom/gnome/gnome-shell/extensions/search-light@icedman.github.com"]
+	path = custom/gnome/gnome-shell/extensions/search-light@icedman.github.com
+	url = https://github.com/icedman/search-light.git
+[submodule "custom/gnome/gnome-shell/extensions/color-picker@tuberry"]
+	path = custom/gnome/gnome-shell/extensions/color-picker@tuberry
+	url = https://github.com/tuberry/color-picker.git
+[submodule "custom/gnome/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca"]
+	path = custom/gnome/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca
+	url = https://gitlab.gnome.org/tuxor1337/hidetopbar.git
+[submodule "custom/gnome/gnome-shell/extensions/disable-unredirect@exeos"]
+	path = custom/gnome/gnome-shell/extensions/disable-unredirect@exeos
+	url = https://github.com/Exeos/disable-unredirect.git
