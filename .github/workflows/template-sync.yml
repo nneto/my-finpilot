@@ -1,0 +1,25 @@
+name: Template Sync
+on:
+  schedule:
+  - cron: "0 0 1 * *"
+  workflow_dispatch:
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          persist-credentials: false
+
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@v2
+        with:
+          source_repo_path: projectbluefin/finpilot
+          source_gh_token: ${{ secrets.GITHUB_TOKEN}}
+          target_gh_token: ${{ secrets.TEMPLATE_SYNC_PAT }}
