@@ -3,6 +3,20 @@
 [org/gnome/shell/extensions/blur-my-shell]
 settings-version=2
 
+[org/gnome/shell/extensions/blur-my-shell/applications]
+blur=true
+dynamic-opacity=false
+opacity=210
+sigma=60
+whitelist=['app.devsuite.Ptyxis', 'gnome-terminal-server', 'org.gnome.Ptyxis', 'com.mattjakeman.ExtensionManager', 'org.gnome.Nautilus', 'org.gnome.Shell.Extensions']
+
+[org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
+blur=true
+unblur-in-overview=true
+
+[org/gnome/shell/extensions/blur-my-shell/panel]
+static-blur=false
+
 # Color picker
 
 [org/gnome/shell/extensions/color-picker]
