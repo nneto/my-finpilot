@@ -2,21 +2,32 @@
 #######################
 ### custom-system.just
 #######################
-
-# Layers megasync and nautilus-megasync with rpm-ostree
-[group('System')]
-layer-mega:
-    #!/usr/bin/env bash
-    echo "Downloading rpms..."
-    wget https://mega.nz/linux/repo/Fedora_43/x86_64/megasync-Fedora_43.x86_64.rpm -P /var/tmp/
-    wget https://mega.nz/linux/repo/Fedora_42/x86_64/nautilus-megasync-Fedora_42.x86_64.rpm -P /var/tmp/
-    echo "Preparing to layer..."
-    sudo rpm-ostree install -y /var/tmp/megasync-Fedora_43.x86_64.rpm /var/tmp/nautilus-megasync-Fedora_42.x86_64.rpm
-    rm /var/tmp/megasync-Fedora_43.x86_64.rpm /var/tmp/nautilus-megasync-Fedora_42.x86_64.rpm
-    echo "Completed!"
-
 ## Example system configuration commands
 ## These are simplified examples adapted from Bluefin
+
+# Run a system benchmark (requires stress-ng from Homebrew)
+[group('System')]
+benchmark:
+    #!/usr/bin/env bash
+    source /usr/lib/ujust/ujust.sh
+    if ! type -P "stress-ng" &>/dev/null ; then
+        echo "stress-ng is not installed."
+        if command -v brew &>/dev/null; then
+            if gum confirm "Install stress-ng via Homebrew?" ; then
+                brew install stress-ng
+                brew link stress-ng
+            else
+                exit 0
+            fi
+        else
+            echo "Please install stress-ng to run benchmarks."
+            exit 1
+        fi
+    fi
+    echo 'Running a 1 minute benchmark...'
+    pushd $(mktemp -d) > /dev/null
+    stress-ng --matrix 0 -t 1m --times
+    popd > /dev/null
 
 # Configure docker and libvirt groups for development
 [group('System')]
