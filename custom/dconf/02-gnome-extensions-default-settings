@@ -12,6 +12,8 @@ whitelist=['app.devsuite.Ptyxis', 'gnome-terminal-server', 'org.gnome.Ptyxis', '
 
 [org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
 blur=true
+pipeline='pipeline_default_rounded'
+static-blur=true
 unblur-in-overview=true
 
 [org/gnome/shell/extensions/blur-my-shell/panel]
