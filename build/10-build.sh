@@ -66,6 +66,18 @@ dnf5 -y install "${FEDORA_PACKAGES[@]}"
 curl -1sLf 'https://dl.cloudsmith.io/public/gustavosett/clipboard-manager/setup.rpm.sh' | bash
 dnf5 install -y win11-clipboard-history
 
+# Firefox Developer Edition
+## Download
+curl -L -o /tmp/firefox.tar.xz 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US'
+## Extract
+tar -xf /tmp/firefox.tar.xz -C /opt
+## 'firefox-developer' command available
+ln -s /opt/firefox/firefox /usr/bin/firefox-developer
+## cleanup
+rm /tmp/firefox.tar.xz
+## desktop entry
+cp /ctx/custom/desktop/firefox-developer.desktop /usr/share/applications/
+
 # GitKraken
 wget https://api.gitkraken.dev/releases/production/linux/x64/active/gitkraken-amd64.rpm && dnf5 install -y gitkraken-amd64.rpm
 rm gitkraken-amd64.rpm
