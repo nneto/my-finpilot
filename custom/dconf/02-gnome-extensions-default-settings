@@ -8,7 +8,7 @@ blur=true
 dynamic-opacity=false
 opacity=210
 sigma=60
-whitelist=['app.devsuite.Ptyxis', 'gnome-terminal-server', 'org.gnome.Ptyxis', 'com.mattjakeman.ExtensionManager', 'org.gnome.Nautilus', 'org.gnome.Shell.Extensions']
+whitelist=['app.devsuite.Ptyxis', 'gnome-terminal-server', 'org.gnome.Ptyxis', 'com.mitchellh.ghostty', 'com.mattjakeman.ExtensionManager', 'org.gnome.Nautilus', 'org.gnome.Shell.Extensions']
 
 [org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
 blur=true

@@ -85,6 +85,9 @@ rm gitkraken-amd64.rpm
 # Example using COPR with isolated pattern:
 # copr_install_isolated "ublue-os/staging" package-name
 
+# Ghostty
+copr_install_isolated "scottames/ghostty" ghostty
+
 echo "::endgroup::"
 
 echo "::group:: Keyfiles for dconf user profile"
