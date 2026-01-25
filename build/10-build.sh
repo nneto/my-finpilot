@@ -96,6 +96,20 @@ cp /ctx/custom/dconf/* /etc/dconf/db/local.d/
 
 echo "::endgroup::"
 
+echo "::group:: Skel"
+
+# Copy flatpak overrides
+mkdir -p /etc/skel/.local/share/flatpak/overrides/
+cp /ctx/oci/common/bluefin/etc/skel/.local/share/flatpak/overrides/* /etc/skel/.local/share/flatpak/overrides/
+
+echo "::endgroup::"
+
+echo "::group:: tmpfiles.d"
+
+cp /ctx/oci/common/bluefin/usr/lib/tmpfiles.d/* /usr/lib/tmpfiles.d/
+
+echo "::endgroup::"
+
 echo "::group:: System Configuration"
 
 # Copy systemd services
