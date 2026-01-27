@@ -58,6 +58,7 @@ FEDORA_PACKAGES=(
     cockpit-selinux
     cockpit-storaged
     cockpit-system
+    dbus-x11
     gum
     nautilus-gsconnect
     podman-compose
@@ -108,6 +109,27 @@ copr_install_isolated "scottames/ghostty" ghostty
 
 echo "::endgroup::"
 
+echo "::group:: ublue-os packages and patches"
+
+# Fix for ID in fwupd
+dnf -y copr enable ublue-os/staging
+dnf -y copr disable ublue-os/staging
+dnf -y swap \
+    --repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
+    fwupd fwupd
+
+# TODO: remove me on next flatpak release when preinstall landed in Fedora
+if [[ "$(rpm -E %fedora)" -ge "42" ]]; then
+  dnf -y copr enable ublue-os/flatpak-test
+  dnf -y copr disable ublue-os/flatpak-test
+  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak flatpak
+  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-libs flatpak-libs
+  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-session-helper flatpak-session-helper
+  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test install flatpak-debuginfo flatpak-libs-debuginfo flatpak-session-helper-debuginfo
+fi
+
+echo "::endgroup::"
+
 echo "::group:: Keyfiles for dconf user profile"
 
 cp /ctx/custom/dconf/* /etc/dconf/db/local.d/
@@ -131,13 +153,15 @@ echo "::endgroup::"
 echo "::group:: System Configuration"
 
 # Copy systemd services
+# cp /ctx/oci/common/shared/usr/lib/systemd/system/flatpak-preinstall.service /usr/lib/systemd/system/
 cp /ctx/oci/common/bluefin/usr/lib/systemd/system/dconf-update.service /usr/lib/systemd/system/
-cp /ctx/custom/systemd/system/bluefin-dx-groups.service /usr/lib/systemd/system/
+cp /ctx/custom/systemd/system/*.service /usr/lib/systemd/system/
 
 # Enable/disable systemd services
 systemctl enable bluefin-dx-groups.service
 systemctl enable dconf-update.service
 systemctl enable docker.socket
+systemctl enable flatpak-preinstall.service
 systemctl enable podman.socket
 # Example: systemctl mask unwanted-service
 

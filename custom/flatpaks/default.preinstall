@@ -3,11 +3,17 @@
 # Format: INI file with [Flatpak Preinstall NAME] groups
 # See: https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-preinstall
 
+[Flatpak Preinstall app.zen_browser.zen]
+Branch=stable
+
+[Flatpak Preinstall org.inkscape.Inkscape]
+Branch=stable
+
 # Web Browsers
 [Flatpak Preinstall org.mozilla.firefox]
 Branch=stable
 
-[Flatpak Preinstall org.mozilla.Thunderbird]
+[Flatpak Preinstall net.thunderbird.Thunderbird]
 Branch=stable
 
 # GNOME Core Applications
