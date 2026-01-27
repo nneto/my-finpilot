@@ -3,6 +3,9 @@
 # Format: INI file with [Flatpak Preinstall NAME] groups
 # See: https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-preinstall
 
+[Flatpak Preinstall app.zen_browser.zen]
+[Flatpak Preinstall org.inkscape.Inkscape]
+
 # Web Browsers
 [Flatpak Preinstall org.mozilla.firefox]
 Branch=stable
