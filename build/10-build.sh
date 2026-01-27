@@ -16,23 +16,18 @@ source /ctx/build/copr-helpers.sh
 # Enable nullglob for all glob operations to prevent failures on empty matches
 shopt -s nullglob
 
-echo "::group:: Copy Bluefin Config from Common"
-
-# Copy just files from @projectbluefin/common (includes 00-entry.just which imports 60-custom.just)
-mkdir -p /usr/share/ublue-os/just/
-shopt -s nullglob
-cp -r /ctx/oci/common/bluefin/usr/share/ublue-os/just/* /usr/share/ublue-os/just/
-shopt -u nullglob
-
-echo "::endgroup::"
-
 echo "::group:: Copy Custom Files"
+
+cp -r /ctx/custom/bin/bluefin-dx-groups /usr/bin/
+chmod +x /usr/bin/bluefin-dx-groups
+
 
 # Copy Brewfiles to standard location
 mkdir -p /usr/share/ublue-os/homebrew/
 cp /ctx/custom/brew/*.Brewfile /usr/share/ublue-os/homebrew/
 
 # Consolidate Just Files
+cp /ctx/oci/common/bluefin/usr/share/ublue-os/just/system.just /ctx/custom/ujust/
 find /ctx/custom/ujust -iname '*.just' -exec printf "\n\n" \; -exec cat {} \; >> /usr/share/ublue-os/just/60-custom.just
 
 # Copy Flatpak preinstall files
@@ -54,8 +49,20 @@ echo "::group:: Install Packages"
 
 # Base packages
 FEDORA_PACKAGES=(
+    android-tools
+    cockpit-bridge
+    cockpit-machines
+    cockpit-networkmanager
+    cockpit-ostree
+    cockpit-podman
+    cockpit-selinux
+    cockpit-storaged
+    cockpit-system
     gum
     nautilus-gsconnect
+    podman-compose
+    podman-machine
+    podman-tui
 )
 
 # Install all Fedora packages (bulk - safe from COPR injection)
@@ -65,6 +72,17 @@ dnf5 -y install "${FEDORA_PACKAGES[@]}"
 # Clipboard Manager
 curl -1sLf 'https://dl.cloudsmith.io/public/gustavosett/clipboard-manager/setup.rpm.sh' | bash
 dnf5 install -y win11-clipboard-history
+
+# Docker
+dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
+sed -i "s/enabled=.*/enabled=0/g" /etc/yum.repos.d/docker-ce.repo
+dnf -y install --enablerepo=docker-ce-stable \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-ce \
+    docker-ce-cli \
+    docker-compose-plugin \
+    docker-model-plugin
 
 # Firefox Developer Edition
 ## Download
@@ -113,14 +131,26 @@ echo "::endgroup::"
 echo "::group:: System Configuration"
 
 # Copy systemd services
-cp /ctx/custom/systemd/system/*.service /usr/lib/systemd/system/
+cp /ctx/oci/common/bluefin/usr/lib/systemd/system/dconf-update.service /usr/lib/systemd/system/
+cp /ctx/custom/systemd/system/bluefin-dx-groups.service /usr/lib/systemd/system/
 
 # Enable/disable systemd services
-systemctl enable podman.socket
+systemctl enable bluefin-dx-groups.service
 systemctl enable dconf-update.service
+systemctl enable docker.socket
+systemctl enable podman.socket
 # Example: systemctl mask unwanted-service
 
 echo "::endgroup::"
+
+# Load iptable_nat module for docker-in-docker.
+# See:
+#   - https://github.com/ublue-os/bluefin/issues/2365
+#   - https://github.com/devcontainers/features/issues/1235
+mkdir -p /etc/modules-load.d
+tee /etc/modules-load.d/ip_tables.conf <<EOF
+iptable_nat
+EOF
 
 # Restore default glob behavior
 shopt -u nullglob
